@@ -136,6 +136,9 @@ function createTable(jsonObj) {
     th5.setAttribute("scope", "row");
     const td5 = document.createElement("td");
     td5.setAttribute("id", "project-manager-value");
+    td5.innerHTML = header['PROJECT MANAGER'];
+    tr5.appendChild(th5);
+    tr5.appendChild(td5);
 
     //Sponsor
 
@@ -146,6 +149,9 @@ function createTable(jsonObj) {
     th6.setAttribute("scope", "row");
     const td6 = document.createElement("td");
     td6.setAttribute("id", "sponsor-value");
+    td6.innerHTML = header.SPONSOR;
+    tr6.appendChild(th6);
+    tr6.appendChild(td6);
 
 
     //Horizontal separator
@@ -245,4 +251,18 @@ function createTable(jsonObj) {
     table.appendChild(tbody);
 
     document.getElementById("charter").appendChild(table);
+
+    document.getElementById("button-download").hidden = false;
 } 
+
+function downloadCharter() {
+    var element = document.getElementById("charter");
+    
+    html2canvas(element, {quality: 4, scale: 5}).then(function(canvas) {
+        var imgData = canvas.toDataURL('image/png');
+        var doc = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
+        console.log(doc);
+        doc.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        doc.save('charter.pdf');
+    });
+}
