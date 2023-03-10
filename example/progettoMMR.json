@@ -1,0 +1,61 @@
+{
+    "charter": [
+        {
+            "header": {
+                "PROGETTO": "MMR Tech",
+                "DATA INIZIO": "10/03/2023",
+                "NUM REVISIONE": 1,
+                "CLIENTE": "",
+                "PROJECT MANAGER": "Marziali Edoardo",
+                "SPONSOR": "Scuola"
+            }
+        },
+        {
+            "content": {
+                "OBIETTIVI": [
+                    ""
+                ],
+                "REQUISITI": [
+                    ""
+                ],
+                "DELIVERABLE": [
+                    ""
+                ],
+                "MILESTONE": [
+                    ""
+                ],
+                "VINCOLI": [
+                    ""
+                ],
+                "DIPENDENZE": [
+                    ""
+                ],
+                "CALENDARIO": [
+                    ""
+                ],
+                "TEAM": [
+                    "Marano Andrea",
+                    "Marziali Edoardo",
+                    "Rametta Leonardo"
+                ],
+                "BUDGET": {
+                    "stima vendite addizionali": [
+                        1
+                    ],
+                    "Stima costi": [
+                        1
+                    ]
+                },
+                "RISCHI": [
+                    ""
+                ],
+                "FIRME": [
+                    "Marano Andrea",
+                    "Marziai Edoardo",
+                    "Rametta Leonardo",
+                    "Sponsor"
+                ]
+            }
+        }
+    ]
+}
