@@ -10,6 +10,14 @@
     align-content: center;
 }
 
+th {
+    text-align: end;
+}
+
+#charter {
+    width: 70vh;
+}
+
 #fileid {
     display: none;
 }
