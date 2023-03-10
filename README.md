@@ -1,6 +1,6 @@
 # charter 
 
-A charter builder that creates a project charter based on a json file written in a specific way.
+A charter builder that creates a project charter based on a json file written in a specific way. (Made for a school project)
 
 ## Example:
 ```json
