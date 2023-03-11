@@ -26,14 +26,14 @@ th {
     margin-bottom: 30px;
 }
 
-.table {
+table {
     position: absolute;
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
  }
 
- .table td {
+ table td {
     border-bottom: 1px solid;
     padding: 0px;
     margin: 0px;
