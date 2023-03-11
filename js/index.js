@@ -3,6 +3,7 @@ function loadJson() {
 }
 
 function generateCharter() {
+
     var json = "";
 
     let selected = document.getElementById("fileid").files[0];
@@ -18,11 +19,6 @@ function generateCharter() {
 }
 
 function createTable(jsonObj) {
-
-    if (document.getElementById("json").value != "") {
-        jsonObj = JSON.parse(document.getElementById("json").value);
-        document.getElementById("json").style.display = "none";
-    }
 
     const header = jsonObj.charter[0].header;
 
@@ -60,118 +56,43 @@ function createTable(jsonObj) {
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
 
-    //First row of the table (header) 
-
-    //Title Project Charter
-    const tr = document.createElement("tr");
-    const th = document.createElement("th");
-    th.setAttribute("colspan", "2");
-    th.setAttribute("id", "title");
-    th.setAttribute("scope", "row");
-    th.innerHTML = "Project Charter";
-    th.setAttribute("style", "text-align: center; background-color: #afd095 ");
-    tr.appendChild(th);
-    thead.appendChild(tr);
-
-    //Second row of the table (header)
-
-    //Project Name
-
+    //Title of the table (Project Charter)
     const tr1 = document.createElement("tr");
     const th1 = document.createElement("th");
-    th1.setAttribute("id", "project-name");
+    th1.setAttribute("colspan", "2");
     th1.setAttribute("scope", "row");
-    th1.innerHTML = "PROGETTO: ";
-    const td1 = document.createElement("td");
-    td1.setAttribute("id", "project-name-value");
-    td1.innerHTML = header.PROGETTO;
+    th1.setAttribute("style", "text-align: center; background-color: #afd095 ");
+    th1.setAttribute("id", "title");
+    th1.innerHTML = "Project Charter";
     tr1.appendChild(th1);
-    tr1.appendChild(td1);
+    thead.appendChild(tr1);
 
-    //Third row of the table (header)
-
-    //Two columns: Data Inizio and Num Revisione
-
-    const tr2 = document.createElement("tr");
-    const th2 = document.createElement("th");
-    th2.setAttribute("id", "data-inizio");
-    th2.innerHTML = "DATA INIZIO: ";
-    th2.setAttribute("scope", "row");
-    const td2 = document.createElement("td");
-    td2.setAttribute("id", "data-inizio-value");
-    td2.innerHTML = header['DATA INIZIO'];
-    tr2.appendChild(th2);
-    tr2.appendChild(td2);
-
-    const tr3 = document.createElement("tr");
-    const th3 = document.createElement("th");
-    th3.setAttribute("id", "num-revisione");
-    th3.innerHTML = "NUM REVISIONE: ";
-    th3.setAttribute("scope", "row");
-    const td3 = document.createElement("td");
-    td3.setAttribute("id", "num-revisione-value");
-    td3.innerHTML = header['NUM REVISIONE'];
-    tr3.appendChild(th3);
-    tr3.appendChild(td3);
-
-    //Fourth row of the table (header)
-
-    //Client
-
-    const tr4 = document.createElement("tr");
-    const th4 = document.createElement("th");
-    th4.setAttribute("id", "client");
-    th4.innerHTML = "CLIENTE: ";
-    th4.setAttribute("scope", "row");
-    const td4 = document.createElement("td");
-    td4.setAttribute("id", "client-value");
-    td4.innerHTML = header.CLIENTE;
-    tr4.appendChild(th4);
-    tr4.appendChild(td4);
-
-    //Fifth row of the table (header)
-
-    //Two columns: Project Manager name and Sponsor
-
-    //Project Manager
-
-    const tr5 = document.createElement("tr");
-    const th5 = document.createElement("th");
-    th5.setAttribute("id", "project-manager");
-    th5.innerHTML = "PROJECT MANAGER: ";
-    th5.setAttribute("scope", "row");
-    const td5 = document.createElement("td");
-    td5.setAttribute("id", "project-manager-value");
-    td5.innerHTML = header['PROJECT MANAGER'];
-    tr5.appendChild(th5);
-    tr5.appendChild(td5);
-
-    //Sponsor
-
-    const tr6 = document.createElement("tr");
-    const th6 = document.createElement("th");
-    th6.setAttribute("id", "sponsor");
-    th6.innerHTML = "SPONSOR: ";
-    th6.setAttribute("scope", "row");
-    const td6 = document.createElement("td");
-    td6.setAttribute("id", "sponsor-value");
-    td6.innerHTML = header.SPONSOR;
-    tr6.appendChild(th6);
-    tr6.appendChild(td6);
-
+    //Header of the table (project name, date, revision number, client, project manager, sponsor)
+    for (var key in header) {
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        th.setAttribute("scope", "row");
+        th.setAttribute("id", key);
+        th.innerHTML = key;
+        const td = document.createElement("td");
+        td.setAttribute("id", key + "-value");
+        td.innerHTML = header[key];
+        tr.appendChild(th);
+        tr.appendChild(td);
+        thead.appendChild(tr);
+    }
 
     //Horizontal separator
+    const tr2 = document.createElement("tr");
+    const th2 = document.createElement("th");
+    th2.setAttribute("colspan", "2");
+    th2.setAttribute("scope", "row");
+    th2.setAttribute("id", "separator");
+    th2.innerHTML = " ";
+    tr2.appendChild(th2);
+    thead.appendChild(tr2);
 
-    const tr7 = document.createElement("tr");
-    const th7 = document.createElement("th");
-    th7.setAttribute("colspan", "2");
-    th7.setAttribute("scope", "row");
-    th7.setAttribute("id", "separator");
-    th7.innerHTML = " ";
-    tr7.appendChild(th7);
-
-    //Sixth row of the table (content)
-
+    //Table content (objectives, requirements, deliverables, milestones, constraints, dependencies, calendar, team, budget, risks, signatures)
     for (let key in content) {
         const tr = document.createElement("tr");
         const th = document.createElement("th");
@@ -209,11 +130,13 @@ function createTable(jsonObj) {
             const p1 = document.createElement("p");
             p1.innerHTML = "Stima vendite addizionali: ";
             const ul1 = document.createElement("ul");
+
             for (let i = 0; i < stimaVenditeAddizionali.length; i++) {
                 const li1 = document.createElement("li");
                 li1.innerHTML = stimaVenditeAddizionali[i];
                 ul1.appendChild(li1);
             }
+
             p1.appendChild(ul1);
             td.appendChild(p1);
 
@@ -240,28 +163,21 @@ function createTable(jsonObj) {
         } else {
             td.innerHTML = value;
         }
+
         tr.appendChild(th);
         tr.appendChild(td);
         tbody.appendChild(tr);
     }
 
-    thead.appendChild(tr1);
-    thead.appendChild(tr2);
-    thead.appendChild(tr3);
-    thead.appendChild(tr4);
-    thead.appendChild(tr5);
-    thead.appendChild(tr6);
-    thead.appendChild(tr7);
-
     table.appendChild(thead);
     table.appendChild(tbody);
 
     document.getElementById("charter").appendChild(table);
-
     document.getElementById("button-download").hidden = false;
 }
 
 function downloadCharter() {
+    
     var element = document.getElementById("charter");
 
     html2canvas(element, { quality: 4, scale: 3 }).then(function (canvas) {
