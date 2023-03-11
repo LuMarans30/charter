@@ -259,7 +259,7 @@ function createTable(jsonObj) {
 function downloadCharter() {
     var element = document.getElementById("charter");
     
-    html2canvas(element, {quality: 4}).then(function(canvas) {
+    html2canvas(element, {quality: 4, scale: 3}).then(function(canvas) {
         var imgData = canvas.toDataURL('image/png');
         var doc = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
         console.log(doc);
