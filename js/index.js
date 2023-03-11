@@ -10,6 +10,7 @@ function generateCharter() {
     reader.addEventListener("loadend", () => {
         json = reader.result
         var jsonObj = JSON.parse(json);
+        document.getElementById("charter").innerHTML = "";
         createTable(jsonObj);
     });
 
