@@ -19,9 +19,8 @@ function generateCharter() {
 
 function createTable(jsonObj) {
 
-    if (document.getElementById("json").innerHTML != "") {
-        jsonObj = JSON.parse(document.getElementById("json").innerHTML);
-
+    if (document.getElementById("json").value != "") {
+        jsonObj = JSON.parse(document.getElementById("json").value);
         document.getElementById("json").style.display = "none";
     }
 
