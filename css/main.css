@@ -27,16 +27,5 @@ th {
 }
 
 table {
-    position: absolute;
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
- }
-
- table td {
-    border-bottom: 1px solid;
-    padding: 0px;
-    margin: 0px;
-    width: 100%;
-    padding: 0px;
- }
+    height: 100%
+}
