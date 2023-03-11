@@ -3,9 +3,9 @@
         {
             "header": {
                 "PROGETTO": "MMR Tech",
-                "DATA INIZIO": "10/03/2023",
+                "DATA INIZIO": "15/10/2022",
                 "NUM REVISIONE": 1,
-                "CLIENTE": "",
+                "CLIENTE": "Imprese",
                 "PROJECT MANAGER": "Marziali Edoardo",
                 "SPONSOR": "Scuola"
             }
@@ -13,16 +13,26 @@
         {
             "content": {
                 "OBIETTIVI": [
-                    ""
+                    "Semplificare la gestione dei processi delle risorse umane per aziende di medio/grandi dimensioni nel settore dei servizi",
+                    "Offrire una forte libertà di personalizzazione del software al cliente",
+                    "Offrire una documentazione chiara e completa per l'utente finale"
                 ],
                 "REQUISITI": [
-                    ""
+                    "Requisiti funzionali: La base di codice deve essere adatta alle esigenze del cliente out of the box, deve essere possibile personalizzare il software in base alle esigenze dell'azienda",
+                    "Requisiti non funzionali: Alta attendibilità e pulizia della base di codice, compatibilità delle dipendenze utilizzate con altre librerie, semplicità di utilizzo e manutenibilità del codice",
+                    "Requisiti di dominio: utilizzo di vari linguaggi di programmazione, di framework e ambienti di sviluppo"
                 ],
                 "DELIVERABLE": [
                     ""
                 ],
                 "MILESTONE": [
-                    ""
+                    "comprendere le esigenze dei clienti e definire i requisiti del software",
+                    "realizzazione di prototipi",
+                    "la definizione dell'architettura software",
+                    "la realizzazione delle funzionalità principali del software",
+                    "Test e validazione del software",
+                    "Rilascio del software",
+                    "Supporto e manutenzione del software"
                 ],
                 "VINCOLI": [
                     ""
@@ -47,13 +57,15 @@
                     ]
                 },
                 "RISCHI": [
-                    ""
+                    "Soddisfazione le aspettative del cliente",
+                    "Difficoltà nella personalizzazione del software",
+                    "Difficoltà nella gestione del progetto dovuto alla complessità del progetto e necessità di coordinare più attività diverse"
                 ],
                 "FIRME": [
                     "Marano Andrea",
                     "Marziai Edoardo",
                     "Rametta Leonardo",
-                    "Sponsor"
+                    "ITT Montani"
                 ]
             }
         }
