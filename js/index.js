@@ -12,10 +12,22 @@ function fileupload() {
         json = reader.result
         var jsonObj = JSON.parse(json);
         document.getElementById("charter").innerHTML = "";
+        jsonValidator(json);
         createTable(jsonObj);
     });
 
     reader.readAsText(selected);
+}
+
+function jsonValidator(json) {
+
+    try {
+        JSON.parse(json);
+    } catch (e) {
+        return false;
+    }
+
+    return true;
 }
 
 function createTable(jsonObj) {

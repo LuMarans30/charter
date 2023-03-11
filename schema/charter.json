@@ -1,0 +1,235 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "charter": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "header": {
+                "type": "object",
+                "properties": {
+                  "PROGETTO": {
+                    "type": "string"
+                  },
+                  "DATA INIZIO": {
+                    "type": "string"
+                  },
+                  "NUM REVISIONE": {
+                    "type": "integer"
+                  },
+                  "CLIENTE": {
+                    "type": "string"
+                  },
+                  "PROJECT MANAGER": {
+                    "type": "string"
+                  },
+                  "SPONSOR": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "PROGETTO",
+                  "DATA INIZIO",
+                  "NUM REVISIONE",
+                  "CLIENTE",
+                  "PROJECT MANAGER",
+                  "SPONSOR"
+                ]
+              }
+            },
+            "required": [
+              "header"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "object",
+                "properties": {
+                  "OBIETTIVI": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "REQUISITI": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "DELIVERABLE": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "MILESTONE": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "VINCOLI": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "DIPENDENZE": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "CALENDARIO": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "TEAM": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "BUDGET": {
+                    "type": "object",
+                    "properties": {
+                      "stima vendite addizionali": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "integer"
+                          }
+                        ]
+                      },
+                      "Stima costi": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "type": "integer"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "stima vendite addizionali",
+                      "Stima costi"
+                    ]
+                  },
+                  "RISCHI": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "FIRME": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "OBIETTIVI",
+                  "REQUISITI",
+                  "DELIVERABLE",
+                  "MILESTONE",
+                  "VINCOLI",
+                  "DIPENDENZE",
+                  "CALENDARIO",
+                  "TEAM",
+                  "BUDGET",
+                  "RISCHI",
+                  "FIRME"
+                ]
+              }
+            },
+            "required": [
+              "content"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "charter"
+    ]
+  }
