@@ -19,12 +19,10 @@
 <body>
     <div class="container">
         <h1 class="text-center my-4">Project Charter Builder</h1>
-        <input id='fileid' type='file' onchange="generateCharter()" accept="application/json" hidden />
-        <button class="btn btn-primary" onclick="loadJson()">Load a JSON file</button>
-        <div id="charter">
-        </div>
-        <button class="btn btn-primary" id="button-download" onclick="downloadCharter()" hidden>Download Charter as
-            PDF</button>
+        <input id='fileid' type='file' onchange="fileupload()" accept="application/json" hidden />
+        <button class="btn btn-primary" onclick="openDialog()">Load a JSON file</button>
+        <div id="charter"></div>
+        <button class="btn btn-primary" id="button-download" onclick="downloadCharter()" hidden>Download Charter as PDF</button>
     </div>
 </body>
 

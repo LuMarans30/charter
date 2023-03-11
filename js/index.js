@@ -1,8 +1,8 @@
-function loadJson() {
+function openDialog() {
     document.getElementById("fileid").click();
 }
 
-function generateCharter() {
+function fileupload() {
 
     var json = "";
 
@@ -177,7 +177,7 @@ function createTable(jsonObj) {
 }
 
 function downloadCharter() {
-    
+
     var element = document.getElementById("charter");
 
     html2canvas(element, { quality: 4, scale: 3 }).then(function (canvas) {
