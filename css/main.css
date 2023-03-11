@@ -25,3 +25,18 @@ th {
 #button-download {
     margin-bottom: 30px;
 }
+
+.table {
+    position: absolute;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+ }
+
+ .table td {
+    border-bottom: 1px solid;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+ }
