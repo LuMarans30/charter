@@ -19,6 +19,12 @@ function generateCharter() {
 
 function createTable(jsonObj) {
 
+    if (document.getElementById("json").innerHTML != "") {
+        jsonObj = JSON.parse(document.getElementById("json").innerHTML);
+
+        document.getElementById("json").style.display = "none";
+    }
+
     const header = jsonObj.charter[0].header;
 
     //default string
@@ -254,12 +260,12 @@ function createTable(jsonObj) {
     document.getElementById("charter").appendChild(table);
 
     document.getElementById("button-download").hidden = false;
-} 
+}
 
 function downloadCharter() {
     var element = document.getElementById("charter");
-    
-    html2canvas(element, {quality: 4, scale: 3}).then(function(canvas) {
+
+    html2canvas(element, { quality: 4, scale: 3 }).then(function (canvas) {
         var imgData = canvas.toDataURL('image/png');
         var doc = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
         console.log(doc);
