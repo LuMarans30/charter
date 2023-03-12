@@ -1,5 +1,5 @@
-const table_header_color = "#485c28";
-const table_content_color = "#59833a";
+var table_header_color = "#485c28";
+var table_content_color = "#59833a";
 
 document.documentElement.setAttribute("data-bs-theme", "dark");
 
