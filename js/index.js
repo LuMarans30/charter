@@ -1,43 +1,20 @@
-var table_header_color = "";
-var table_content_color = "";
+const table_header_color = "#6a873b";
+const table_content_color = "#81b658";
 
-var jsonObj = null;
-
-const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-
-toggleTheme(darkThemeMq.matches);
-
-function toggleTheme(bool) {
-    document.documentElement.setAttribute("data-bs-theme", bool?"dark":"light");
-    table_header_color = bool?"#6a873b":"#afd095";
-    table_content_color = bool?"#81b658":"#dde8cb";
-
-    for (var th in document.getElementsByTagName("th")) {
-        th.style.backgroundColor = th.id=="title" || th.id=="FIRME" ? 
-        table_header_color:
-        table_content_color;
-    }
-}
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches }) => 
-{
-    console.log("theme mode changed to " + matches?"dark":"light");
-    toggleTheme(matches);
-});
+document.documentElement.setAttribute("data-bs-theme", "dark");
 
 function openDialog() {
     document.getElementById("fileid").click();
 }
 
 function fileupload() {
-
     var json = "";
 
     let selected = document.getElementById("fileid").files[0];
     let reader = new FileReader();
     reader.addEventListener("loadend", () => {
         json = reader.result
-        jsonObj = JSON.parse(json);
+        var jsonObj = JSON.parse(json);
         document.getElementById("charter").innerHTML = "";
         jsonValidator(jsonObj).then(function (result) {
             if (result) {
@@ -103,11 +80,7 @@ function createTable(jsonObj) {
 
     const table = document.createElement("table");
     table.setAttribute("id", "charter-table");
-    table.setAttribute("class", "table table-bordered");
-
-    if (darkThemeMq.matches) {
-        table.classList.add("table-dark");
-    }
+    table.setAttribute("class", "table table-bordered table-dark table-hover");
 
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
