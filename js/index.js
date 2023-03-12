@@ -5,7 +5,7 @@ var jsonObj = null;
 
 const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
 
-//toggleTheme(darkThemeMq.matches);
+toggleTheme(darkThemeMq.matches);
 
 function toggleTheme(bool) {
     document.documentElement.setAttribute("data-bs-theme", bool?"dark":"light");
