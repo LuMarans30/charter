@@ -28,7 +28,7 @@ async function jsonValidator(json) {
 
     result = true;
     
-    await fetch('../schema/charter.json').then(function (response) {
+    await fetch('https://raw.githubusercontent.com/LuMarans30/charter/master/schema/charter.json').then(function (response) {
         return response.json();
     }).then(function (schema) {
         env.addSchema('charter', schema);
