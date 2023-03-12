@@ -7,6 +7,8 @@ function openDialog() {
     document.getElementById("fileid").click();
 }
 
+var jsonObj = null;
+
 function fileupload() {
     var json = "";
 
@@ -14,7 +16,7 @@ function fileupload() {
     let reader = new FileReader();
     reader.addEventListener("loadend", () => {
         json = reader.result
-        var jsonObj = JSON.parse(json);
+        jsonObj = JSON.parse(json);
         document.getElementById("charter").innerHTML = "";
         jsonValidator(jsonObj).then(function (result) {
             if (result) {
@@ -208,6 +210,15 @@ function createTable(jsonObj) {
 function downloadCharter() {
 
     var element = document.getElementById("charter");
+
+    var table = document.getElementById("charter-table");
+
+    if (document.getElementById("light").checked) {
+        table.classList.remove("table-dark");
+        table_header_color = "#9bbc67";
+        table_content_color = "#abcf91";
+        createTable(jsonObj);
+    }
 
     html2canvas(element, { quality: 4, scale: 3 }).then(function (canvas) {
         var imgData = canvas.toDataURL('image/png');
