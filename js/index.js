@@ -1,5 +1,5 @@
-const table_header_color = "#6a873b";
-const table_content_color = "#81b658";
+const table_header_color = "#485c28";
+const table_content_color = "#59833a";
 
 document.documentElement.setAttribute("data-bs-theme", "dark");
 
@@ -80,7 +80,7 @@ function createTable(jsonObj) {
 
     const table = document.createElement("table");
     table.setAttribute("id", "charter-table");
-    table.setAttribute("class", "table table-bordered table-dark table-hover");
+    table.setAttribute("class", "table table-bordered table-dark table-striped");
 
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
