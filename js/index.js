@@ -49,7 +49,7 @@ async function jsonValidator(json) {
     return result;
 }
 
-function createTable(jsonObj) {
+function createTable(jsonObj, theme) {
 
     const header = jsonObj.charter[0].header;
 
@@ -82,7 +82,7 @@ function createTable(jsonObj) {
 
     const table = document.createElement("table");
     table.setAttribute("id", "charter-table");
-    table.setAttribute("class", "table table-bordered table-dark");
+    table.setAttribute("class", `table table-bordered table-${theme}`);
 
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
@@ -216,14 +216,13 @@ function downloadCharter() {
         table_header_color = "#9bbc67";
         table_content_color = "#abcf91";
         document.getElementById("charter").removeChild(table);
-        createTable();
-        table.classList.remove("table-dark");
+        createTable(jsonObj, "light");
     }else
     {
         table_header_color = "#485c28";
         table_content_color = "#59833a";
         document.getElementById("charter").removeChild(table);
-        createTable();
+        createTable(jsonObj, "dark");
     }
 
     html2canvas(element, { quality: 4, scale: 3 }).then(function (canvas) {
