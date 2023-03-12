@@ -1,3 +1,30 @@
+var table_header_color = "";
+var table_content_color = "";
+
+var jsonObj = null;
+
+const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+
+toggleTheme(darkThemeMq.matches);
+
+function toggleTheme(bool) {
+    document.documentElement.setAttribute("data-bs-theme", bool?"dark":"light");
+    table_header_color = bool?"#6a873b":"#afd095";
+    table_content_color = bool?"#81b658":"#dde8cb";
+
+    for (var th in document.getElementsByTagName("th")) {
+        th.style.backgroundColor = th.id=="title" || th.id=="FIRME" ? 
+        table_header_color:
+        table_content_color;
+    }
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches }) => 
+{
+    console.log("theme mode changed to " + matches?"dark":"light");
+    toggleTheme(matches);
+});
+
 function openDialog() {
     document.getElementById("fileid").click();
 }
@@ -10,7 +37,7 @@ function fileupload() {
     let reader = new FileReader();
     reader.addEventListener("loadend", () => {
         json = reader.result
-        var jsonObj = JSON.parse(json);
+        jsonObj = JSON.parse(json);
         document.getElementById("charter").innerHTML = "";
         jsonValidator(jsonObj).then(function (result) {
             if (result) {
@@ -78,6 +105,10 @@ function createTable(jsonObj) {
     table.setAttribute("id", "charter-table");
     table.setAttribute("class", "table table-bordered");
 
+    if (darkThemeMq.matches) {
+        table.classList.add("table-dark");
+    }
+
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
 
@@ -86,7 +117,7 @@ function createTable(jsonObj) {
     const th1 = document.createElement("th");
     th1.setAttribute("colspan", "2");
     th1.setAttribute("scope", "row");
-    th1.setAttribute("style", "text-align: center; background-color: #afd095 ");
+    th1.setAttribute("style", `text-align: center; background-color: ${table_header_color}`);
     th1.setAttribute("id", "title");
     th1.innerHTML = "Project Charter";
     tr1.appendChild(th1);
@@ -122,10 +153,10 @@ function createTable(jsonObj) {
         const tr = document.createElement("tr");
         const th = document.createElement("th");
         th.setAttribute("id", key);
-        th.setAttribute("style", "background-color: #dde8cb");
+        th.setAttribute("style", `background-color: ${table_content_color};`);
 
         if (key == "FIRME") {
-            th.setAttribute("style", "background-color: #afd095");
+            th.setAttribute("style", `background-color: ${table_header_color};`);
         }
 
         th.innerHTML = key.toUpperCase() + ": ";
