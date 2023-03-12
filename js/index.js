@@ -211,17 +211,16 @@ function downloadCharter() {
 
     var element = document.getElementById("charter");
     var table = document.getElementById("charter-table");
+    document.getElementById("charter").removeChild(table);
 
     if (document.getElementById("light").checked) {
         table_header_color = "#9bbc67";
         table_content_color = "#abcf91";
-        document.getElementById("charter").removeChild(table);
         createTable(jsonObj, "light");
     }else
     {
         table_header_color = "#485c28";
         table_content_color = "#59833a";
-        document.getElementById("charter").removeChild(table);
         createTable(jsonObj, "dark");
     }
 
