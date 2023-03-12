@@ -80,7 +80,7 @@ function createTable(jsonObj) {
 
     const table = document.createElement("table");
     table.setAttribute("id", "charter-table");
-    table.setAttribute("class", "table table-bordered table-dark table-striped");
+    table.setAttribute("class", "table table-bordered table-dark");
 
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
