@@ -12,22 +12,35 @@ function fileupload() {
         json = reader.result
         var jsonObj = JSON.parse(json);
         document.getElementById("charter").innerHTML = "";
-        jsonValidator(json);
-        createTable(jsonObj);
+        jsonValidator(jsonObj).then(function (result) {
+            if (result) {
+                createTable(jsonObj);
+            }
+        });
     });
 
     reader.readAsText(selected);
 }
 
-function jsonValidator(json) {
+async function jsonValidator(json) {
 
-    try {
-        JSON.parse(json);
-    } catch (e) {
-        return false;
-    }
+    const env = new djv();
 
-    return true;
+    result = true;
+    
+    await fetch('../schema/charter.json').then(function (response) {
+        return response.json();
+    }).then(function (schema) {
+        env.addSchema('charter', schema);
+
+        if (env.validate('charter', json) !== undefined) {
+            console.log("JSON file is not valid");
+            alert("JSON file is not valid");
+            result = false;
+        }
+    });
+
+    return result;
 }
 
 function createTable(jsonObj) {
