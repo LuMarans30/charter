@@ -210,14 +210,20 @@ function createTable(jsonObj) {
 function downloadCharter() {
 
     var element = document.getElementById("charter");
-
     var table = document.getElementById("charter-table");
 
     if (document.getElementById("light").checked) {
-        table.classList.remove("table-dark");
         table_header_color = "#9bbc67";
         table_content_color = "#abcf91";
-        createTable(jsonObj);
+        document.getElementById("charter").removeChild(table);
+        createTable();
+        table.classList.remove("table-dark");
+    }else
+    {
+        table_header_color = "#485c28";
+        table_content_color = "#59833a";
+        document.getElementById("charter").removeChild(table);
+        createTable();
     }
 
     html2canvas(element, { quality: 4, scale: 3 }).then(function (canvas) {
